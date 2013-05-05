@@ -6,7 +6,7 @@ using Rhino.Mocks;
 namespace BankTest
 {
     [TestClass]
-    public class BankTest
+    public class BankTestSolution
     {
         [TestMethod]
         public void DontCalcInterestIfAmountLessThan500()
@@ -37,15 +37,31 @@ namespace BankTest
         [TestMethod]
         public void MockDontCalcInterestIfAmountLessThan500()
         {
-            // TODO
-            Assert.Fail();
+            var calculator = MockRepository.GenerateMock<SimpleInterestCalculator>();
+            calculator.Principal = 499.99;
+            calculator.InterestRate = 0.05;
+            calculator.Time = 2;
+
+            var bank = new Bank(calculator);
+
+            bank.RunProcessing();
+
+            calculator.AssertWasNotCalled(c => c.CalculateInterestAmount());
         }
 
         [TestMethod]
         public void MockCalcInterestIfAmountOver500()
         {
-            // TODO
-            Assert.Fail();
+            var calculator = MockRepository.GenerateMock<SimpleInterestCalculator>();
+            calculator.Principal = 500.01;
+            calculator.InterestRate = 0.05;
+            calculator.Time = 2;
+
+            var bank = new Bank(calculator);
+
+            bank.RunProcessing();
+
+            calculator.AssertWasCalled(c => c.CalculateInterestAmount());
         }
     }
 }

@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BankTest.cs" />
+    <Compile Include="BankTestSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
