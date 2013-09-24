@@ -1,0 +1,20 @@
+[branch]
+	autosetuprebase = always
+[guitool "Rebase onto..."]
+    cmd = git rebase
+    revprompt = yes
+[guitool "Rebase/Continue"]
+    cmd = git rebase --continue
+[guitool "Rebase/Skip"]
+    cmd = git rebase --skip
+[guitool "Rebase/Abort"]
+    cmd = git rebase --abort
+[guitool "Pull with Rebase"]
+    cmd = git pull --rebase
+[guitool "Open Shell at Repo"]
+	cmd = cmd /c cd %v & start \"\" \"C:\\Program Files (x86)\\Git\\bin\\sh.exe\" --login -i
+	noconsole = yes
+[guitool "Stash/Push"]
+	cmd = git stash
+[guitool "Stash/Pop"]
+	cmd = git stash pop
